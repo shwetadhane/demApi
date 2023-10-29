@@ -26,9 +26,9 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-          //def scannerHome = tool 'SonarQubeScanner-5.0.1';
+          //def scannerHome = tool 'SonarQubeScanner';
             steps {
-                withSonarQubeEnv('sonarqube-10.2.1'){
+                withSonarQubeEnv('sonarqube-server'){
                 //sh "${scannerHome}/bin/sonar-scanner"
                 sh "mvn sonar:sonar"  
                 }                  
