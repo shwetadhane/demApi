@@ -40,11 +40,6 @@
 			    <groupId>org.sonarsource.scanner.maven</groupId>
 			    <artifactId>sonar-maven-plugin</artifactId>
 			    <version>3.10.0.2594</version>
-			    <configuration>
-				<sonar.token>sqp_dc049dcca2e075f547753cc778279f735042f076</sonar.token>
-				<sonar.login>admin</sonar.login>
-				<sonar.password>newadmin</sonar.password>
-			    </configuration>
 			</plugin>
 		</plugins>
 	</build>
