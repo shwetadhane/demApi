@@ -40,7 +40,9 @@
 			    <artifactId>sonar-maven-plugin</artifactId>
 			    <version>3.10.0.2594</version>
 			    <configuration>
-				<sonar.login>sqb_f8ae94d85c354ed14c4ab7fdcc3a47d8d488d3ff</sonar.login>
+				<sonar.token>sqb_f8ae94d85c354ed14c4ab7fdcc3a47d8d488d3ff</sonar.token>
+				<sonar.login>admin</sonar.login>
+				<sonar.password>newadmin</sonar.password>
 			    </configuration>
 			</plugin>
 		</plugins>
