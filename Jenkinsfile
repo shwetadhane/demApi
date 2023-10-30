@@ -34,6 +34,25 @@ pipeline {
                 }                  
             }
         }
+        stage('Upload artifact'){
+          steps{
+                nexusArtifactUploader(
+                  nexusVersion: 'nexus3',
+                  protocol: 'http',
+                  nexusUrl: '192.168.0.15:8081',
+                  groupId: 'com.example',
+                  version: 0.0.1-SNAPSHOT,
+                  repository: 'DemoApiRepository',
+                  credentialsId: 'nexuslogin',
+                  artifacts: [
+                      [artifactId: demoApi,
+                       classifier: '',
+                       file: 'target/demoApi-0.0.1-SNAPSHOT.jar',
+                       type: 'jar']
+                  ]
+               )
+          }
+        }
         stage('Deploy') {
             steps {
                 sh 'java -jar target/my-app.jar'
