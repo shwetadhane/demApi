@@ -42,7 +42,7 @@ pipeline {
                   protocol: 'http',
                   nexusUrl: '192.168.0.15:8081',
                   groupId: 'com.example',
-                  version: 'version',
+                  version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
                   repository: 'DemoApiRepository',
                   credentialsId: 'nexuslogin',
                   artifacts: [
@@ -54,10 +54,10 @@ pipeline {
                )
             }
         }
-        stage('Deploy') {
-            steps {
-                sh 'java -jar target/demoApi-0.0.1-SNAPSHOT.jar'
-            }
-        }
+  //      stage('Deploy') {
+  //          steps {
+  //              sh 'java -jar target/demoApi-0.0.1-SNAPSHOT.jar'
+  //          }
+  //      }
     }
 }
