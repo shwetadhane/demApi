@@ -37,11 +37,15 @@ pipeline {
         stage('Upload artifact') {
             steps {
                  echo "Upload artifact Successful" 
+               - script{
+                 version: pom.version
+                 echo version
+               }
             }
         }
         stage('Deploy') {
             steps {
-                sh 'java -jar target/my-app.jar'
+                sh 'java -jar target/demoApi-0.0.1-SNAPSHOT.jar'
             }
         }
     }
