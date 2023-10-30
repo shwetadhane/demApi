@@ -37,8 +37,21 @@ pipeline {
         stage('Upload artifact') {
             steps {
                  echo "Upload artifact Successful" 
-                 version: pom.version
-                 echo version
+                  nexusArtifactUploader(
+                  nexusVersion: 'nexus3',
+                  protocol: 'http',
+                  nexusUrl: '192.168.0.15:8081',
+                  groupId: 'com.example',
+                  version: version,
+                  repository: 'DemoApiRepository',
+                  credentialsId: 'nexuslogin',
+                  artifacts: [
+                      [artifactId: demoApi,
+                       classifier: '',
+                       file: 'target/demoApi-0.0.1-SNAPSHOT.jar',
+                       type: 'jar']
+                  ]
+               )
             }
         }
         stage('Deploy') {
