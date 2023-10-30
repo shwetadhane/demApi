@@ -37,10 +37,8 @@ pipeline {
         stage('Upload artifact') {
             steps {
                  echo "Upload artifact Successful" 
-               - script{
                  version: pom.version
                  echo version
-               }
             }
         }
         stage('Deploy') {
