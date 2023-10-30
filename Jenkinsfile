@@ -43,7 +43,7 @@ pipeline {
                   nexusUrl: '192.168.0.15:8081',
                   groupId: 'com.example',
 //                  version: "Version${env.BUILD_ID}_${env.BUILD_TIMESTAMP}",
-                  version: "Version-${env.BUILD_ID}",  
+                  version: "version",  
                   repository: 'DemoApiRepository',
                   credentialsId: 'nexuslogin',
                   artifacts: [
