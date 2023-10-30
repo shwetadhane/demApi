@@ -41,7 +41,7 @@ pipeline {
                   protocol: 'http',
                   nexusUrl: '192.168.0.15:8081',
                   groupId: 'com.example',
-                  version: 0.0.1-SNAPSHOT,
+                  version: version,
                   repository: 'DemoApiRepository',
                   credentialsId: 'nexuslogin',
                   artifacts: [
