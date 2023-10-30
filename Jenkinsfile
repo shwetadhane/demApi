@@ -36,7 +36,6 @@ pipeline {
         }
         stage('Upload artifact') {
             steps {
-                 echo "Upload artifact Successful" 
                   nexusArtifactUploader(
                   nexusVersion: 'nexus3',
                   protocol: 'http',
