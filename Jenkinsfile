@@ -42,7 +42,7 @@ pipeline {
                   protocol: 'http',
                   nexusUrl: '192.168.0.15:8081',
                   groupId: 'com.example',
-                  version: "${env.BUILD_ID}-${env.BUILD_TIMESTAMP}",
+                  version: "Version${env.BUILD_ID}_${env.BUILD_TIMESTAMP}",
                   repository: 'DemoApiRepository',
                   credentialsId: 'nexuslogin',
                   artifacts: [
