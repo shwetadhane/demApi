@@ -42,11 +42,11 @@ pipeline {
                   protocol: 'http',
                   nexusUrl: '192.168.0.15:8081',
                   groupId: 'com.example',
-                  version: version,
+                  version: 'version',
                   repository: 'DemoApiRepository',
                   credentialsId: 'nexuslogin',
                   artifacts: [
-                      [artifactId: demoApi,
+                      [artifactId: 'demoApi',
                        classifier: '',
                        file: 'target/demoApi-0.0.1-SNAPSHOT.jar',
                        type: 'jar']
