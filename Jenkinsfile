@@ -55,15 +55,15 @@ pipeline {
             }
         }
       
-        stage('Install wget') {
+        stage('Download Artifact from Nexus') {
             steps {
-                sh 'apt-get update && apt-get install -y wget'
-            }
-        }
-        stage('Pull From Nexus') {
-            steps {
-                wget '--user=admin --passowrd=admin123 http://192.168.0.15:8081/repository/DemoApiRepository/com/example/demoApi/Version_37/demoApi-Version_37.jar'
-                mv 'demoApi-Version_37.jar demo-api.jar'
+                script {
+                    def nexusUrl = 'http://192.168.0.15:8081/repository/DemoApiRepository/'
+                    def artifactPath = 'com/example/demoApi/Version_37/demoApi-Version_37.jar'
+                    def downloadLocation = 'demoApi-Version_37.jar'
+                    
+                    sh "curl -o ${downloadLocation} ${nexusUrl}${artifactPath}"
+                }
             }
         }
 
