@@ -54,8 +54,7 @@ pipeline {
                )
             }
         }
-
-      stages {
+      
         stage('Install wget') {
             steps {
                 sh 'apt-get update && apt-get install -y wget'
@@ -67,8 +66,6 @@ pipeline {
                 mv demoApi-Version_37.jar demo-api.jar
             }
         }
-    }
-}
 
   //      stage('Deploy') {
   //          steps {
