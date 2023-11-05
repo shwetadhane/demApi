@@ -42,13 +42,14 @@ pipeline {
                   nexusUrl: '192.168.0.15:8081',
                   groupId: 'com.example',
 //                  version: "Version${env.BUILD_ID}_${env.BUILD_TIMESTAMP}",
-                  version: "Version_${env.BUILD_ID}",  
+//                  version: "Version_${env.BUILD_ID}",  
+                  version: "Version_latest",  
                   repository: 'DemoApiRepository',
                   credentialsId: 'nexuslogin',
                   artifacts: [
                       [artifactId: 'demoApi',
                        classifier: '',
-                       file: 'target/demoApi-0.0.1-SNAPSHOT.jar',
+                       file: 'target/demo-api-1.jar',
                        type: 'jar']
                   ]
                )
@@ -59,8 +60,8 @@ pipeline {
             steps {
                 script {
                     def nexusUrl = 'http://192.168.0.15:8081/repository/DemoApiRepository/'
-                    def artifactPath = 'com/example/demoApi/Version_37/demoApi-Version_37.jar'
-                    def downloadLocation = 'demoApi-Version_37.jar'
+                    def artifactPath = 'com/example/demoApi/Version_latest/demo-api-1.jar'
+                    def downloadLocation = 'demo-api-1.jar'
                     
                     sh "curl -o ${downloadLocation} ${nexusUrl}${artifactPath}"
                 }
