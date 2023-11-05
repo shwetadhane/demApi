@@ -66,7 +66,28 @@ pipeline {
                 }
             }
         }
+      
+        stage('Docker Build') {
+            steps {
+                script {
+                    def dockerImageName = 'demo-api-1.jar'
+                    //def dockerfileLocation = './Dockerfile'
 
+                    sh "docker build -t ${dockerImageName} ."
+                }
+            }
+        }
+      
+        stage('Docker Run') {
+            steps {
+                script {
+                    def dockerImageName = 'demo-api-1.jar'
+
+                    sh "	docker run -p 9090:8090 ${dockerImageName}"
+                }
+            }
+        }
+        
   //      stage('Deploy') {
   //          steps {
   //              sh 'java -jar target/demoApi-0.0.1-SNAPSHOT.jar'
