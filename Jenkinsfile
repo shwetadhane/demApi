@@ -74,6 +74,7 @@ pipeline {
                     def dockerImageName = 'demo-api-1.jar'
                     //def dockerfileLocation = './Dockerfile'
 
+                    sh "docker --version"
                     sh "docker build -t ${dockerImageName} ."
                 }
             }
