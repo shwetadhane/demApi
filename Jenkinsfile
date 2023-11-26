@@ -74,7 +74,7 @@ pipeline {
                     def dockerImageName = 'demo-api-1.jar'
                     //def dockerfileLocation = './Dockerfile'
 
-                    sh "docker --version --privileged -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/usr/bin/docker"
+                    sh "docker --version --privileged -v /var/run/docker.sock:/var/run/docker.sock"
                     sh "docker build -t ${dockerImageName} ."
                 }
             }
