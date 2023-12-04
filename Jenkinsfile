@@ -74,7 +74,7 @@ pipeline {
                     def dockerImageName = 'demo-api-1.jar'
                     //def dockerfileLocation = './Dockerfile'
 
-                    sh "/c/Program Files/Docker/Docker/resources/bin/docker --version --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /c/Program Files/Docker/Docker/resources/bin/docker:/usr/bin/docker"
+                    //sh "/c/Program Files/Docker/Docker/resources/bin/docker --version --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /c/Program Files/Docker/Docker/resources/bin/docker:/usr/bin/docker"
                     sh "docker build -t ${dockerImageName} ."
                 }
             }
@@ -85,7 +85,7 @@ pipeline {
                 script {
                     def dockerImageName = 'demo-api-1.jar'
 
-                    sh "	docker run -p 9090:8090 ${dockerImageName}"
+                    sh "docker run -p 9090:8090 ${dockerImageName}"
                 }
             }
         }
